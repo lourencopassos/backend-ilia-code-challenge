@@ -21,8 +21,3 @@ const server = app.listen(3000, () => {
     console.error(`Falha ao rodar o servidor.`);
   }
 });
-
-// (async () => {
-//   const thirdParty = new ThirdParty();
-//   console.log(await thirdParty.getMovieTranslations("5"));
-// })();
