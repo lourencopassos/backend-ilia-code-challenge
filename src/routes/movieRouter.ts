@@ -6,3 +6,4 @@ export const movieRouter = express.Router();
 const movieController = new MovieController();
 
 movieRouter.post("/add/:movieId", movieController.addMovie);
+movieRouter.get("/all", movieController.getAllMovies);

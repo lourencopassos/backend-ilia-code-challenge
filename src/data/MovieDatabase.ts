@@ -28,8 +28,8 @@ export class MovieDatabase extends BaseDatabase {
   public getMovieById = async (id: string) => {
     try {
       await this.getConnection();
-      const product = await MovieModel.findById(id);
-      return product;
+      const movie = await MovieModel.findById(id);
+      return movie;
     } catch (error) {
       throw new Error(error.message);
     }
