@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 import { AddressInfo } from "net";
 import express from "express";
-import { userRouter } from "./routes/userRouter";
+import { movieRouter } from "./routes/movieRouter";
 import { ThirdParty } from "./services/ThirdParty";
 import cors from "cors";
 
@@ -10,6 +10,8 @@ const app = express();
 app.use(cors({ origin: true }));
 
 app.use(express.json());
+
+app.use("/movies", movieRouter);
 
 const server = app.listen(3000, () => {
   if (server) {
@@ -20,7 +22,7 @@ const server = app.listen(3000, () => {
   }
 });
 
-(async () => {
-  const thirdParty = new ThirdParty();
-  console.log(await thirdParty.getMovieTranslations("5"));
-})();
+// (async () => {
+//   const thirdParty = new ThirdParty();
+//   console.log(await thirdParty.getMovieTranslations("5"));
+// })();
