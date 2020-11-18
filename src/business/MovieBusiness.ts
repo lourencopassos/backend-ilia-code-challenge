@@ -1,5 +1,6 @@
 import { MovieDatabase } from "../data/MovieDatabase";
 import { InvalidParameterError } from "../error/InvalidParameterError";
+import { NotFoundError } from "../error/NotFoundError";
 import { MovieInputDTO } from "../model/Movie";
 import { ThirdParty } from "../services/ThirdParty";
 
@@ -9,6 +10,11 @@ export class MovieBusiness {
 
     const apiIntegration = new ThirdParty();
     const movie = await apiIntegration.getMovieDetail(movieId);
+
+    if (!movie) {
+      throw new NotFoundError("Movie doesn't exist. Try another movie id");
+    }
+
     const translations = await apiIntegration.getMovieTranslations(movieId);
 
     if (!movie.original_title || !movie.overview) {
