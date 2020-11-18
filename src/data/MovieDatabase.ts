@@ -30,7 +30,7 @@ export class MovieDatabase extends BaseDatabase {
       await this.getConnection();
       const movie = await MovieModel.findById(id);
       return movie;
-    } catch (error) {
+    } catch (error) { 
       throw new Error(error.message);
     }
   };
