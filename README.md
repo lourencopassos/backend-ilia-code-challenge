@@ -35,7 +35,7 @@
 3. `npm run start` para rodar localmente o projeto.
 4. `docker-compose up` para rodar a aplicação via Docker 🐋
 
-### 🔓 Rotas 
+### 🛣️ Rotas 
 
 <br>
 
