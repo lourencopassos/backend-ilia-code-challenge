@@ -21,12 +21,12 @@ export class ThirdParty {
         `${baseUrl}/movie/${movieId}?api_key=${apiKey}&language=en-US`,
         axiosConfig
       );
-
-      console.log(movieDetail);
-
       return movieDetail.data;
     } catch (error) {
-      console.log(error);
+           throw new Error(
+             `Error Code ${error.response.status} : ` +
+               error.response.data.status_message
+           );
     }
   }
   public async getMovieTranslations(movieId: string) {
@@ -50,10 +50,10 @@ export class ThirdParty {
         `${baseUrl}/movie/${movieId}/translations?api_key=${apiKey}`,
         axiosConfig
       );
-      
+
       return movieDetail.data.translations;
     } catch (error) {
-      console.log(error);
+      throw new Error(`Error Code: ${error.response.status} : ` + error.response.data.status_message);
     }
   }
 }

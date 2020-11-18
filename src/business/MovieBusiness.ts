@@ -15,6 +15,16 @@ export class MovieBusiness {
       throw new NotFoundError("Movie doesn't exist. Try another movie id");
     }
 
+    const movieAlreadyExistsInDatabase = await this.getMovieByName(
+      movie.original_title
+    );
+
+    if (movieAlreadyExistsInDatabase) {
+      throw new InvalidParameterError(
+        "Movie Already in Database"
+      );
+    }
+
     const translations = await apiIntegration.getMovieTranslations(movieId);
 
     if (!movie.original_title || !movie.overview) {
@@ -48,6 +58,16 @@ export class MovieBusiness {
     }
     const movieDatabase = new MovieDatabase();
     const movie = await movieDatabase.getMovieById(id);
+    return movie;
+  }
+
+  async getMovieByName(movieName: string) {
+    if (!movieName) {
+      throw new InvalidParameterError("Movie name missing");
+    }
+
+    const movieDatabase = new MovieDatabase();
+    const movie = await movieDatabase.getMovieByName(movieName);
     return movie;
   }
 }
