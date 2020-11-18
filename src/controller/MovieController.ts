@@ -8,6 +8,7 @@ export class MovieController {
       const movieId = req.params.movieId;
 
       const movieBusiness = new MovieBusiness();
+      
       const movieExists = await movieBusiness.addMovie(movieId);
 
       res.status(201).send("Movie inserted sucessfully in database");
