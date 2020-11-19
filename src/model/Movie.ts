@@ -4,7 +4,6 @@ import { required, string } from "yargs";
 export const MovieSchema = new Schema({
   original_title: {
     type: String,
-    unique: true,
     required: "Original title required",
     min: 3,
   },
@@ -12,7 +11,7 @@ export const MovieSchema = new Schema({
   overview: {
     type: String,
     unique: true,
-    required: "Product category required",
+    required: "Overview required",
     min: 3,
   },
   translations: [

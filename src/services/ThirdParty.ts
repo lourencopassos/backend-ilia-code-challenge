@@ -23,10 +23,10 @@ export class ThirdParty {
       );
       return movieDetail.data;
     } catch (error) {
-           throw new Error(
-             `Error Code ${error.response.status} : ` +
-               error.response.data.status_message
-           );
+      throw new Error(
+        `Error Code ${error.response.status} : ` +
+          error.response.data.status_message
+      );
     }
   }
   public async getMovieTranslations(movieId: string) {
@@ -53,7 +53,10 @@ export class ThirdParty {
 
       return movieDetail.data.translations;
     } catch (error) {
-      throw new Error(`Error Code: ${error.response.status} : ` + error.response.data.status_message);
+      throw new Error(
+        `Error Code: ${error.response.status} : ` +
+          error.response.data.status_message
+      );
     }
   }
 }

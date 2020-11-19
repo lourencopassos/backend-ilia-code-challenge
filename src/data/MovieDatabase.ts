@@ -38,10 +38,9 @@ export class MovieDatabase extends BaseDatabase {
   public getMovieByName = async (movieName: string) => {
     try {
       await this.getConnection();
-      const movie = await MovieModel.find({
-        name: { $regex: `${movieName}` },
+      const movie = await MovieModel.findOne({
+        original_title: movieName,
       }).exec();
-
       return movie;
     } catch (error) {
       throw new Error(error.message);
