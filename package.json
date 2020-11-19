@@ -4,7 +4,7 @@
   "description": "Code Challenge de construção de API",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --maxWorkers=1 --forceExit --setupFiles dotenv/config",
     "start": "ts-node ./src/index.ts"
   },
   "keywords": [
@@ -33,12 +33,14 @@
     "moment": "^2.27.0",
     "mongoose": "^5.10.15",
     "mysql": "^2.18.1",
+    "supertest": "^6.0.1",
     "ts-jest": "^26.1.0",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.6",
     "uuid": "^8.2.0"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.8"
+    "@types/cors": "^2.8.8",
+    "@types/supertest": "^2.0.10"
   }
 }

@@ -13,7 +13,7 @@ app.use(express.json());
 
 app.use("/movies", movieRouter);
 
-const server = app.listen(3000, () => {
+export const server = app.listen(3000, () => {
   if (server) {
     const address = server.address() as AddressInfo;
     console.log(`Servidor rodando em http://localhost:${address.port}`);
