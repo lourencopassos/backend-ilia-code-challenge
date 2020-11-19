@@ -23,7 +23,6 @@
 - Express
 - Axios
 - Jest
-- Supertest
 - Docker
 - Docker Compose
 - Postman para teste da API
